@@ -1,15 +1,13 @@
-# USPS API integration on PHP based on original library by Vincent Gabriel.
+# PHP USPS API integration
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/paperscissorsandglue/USPS-API.svg?style=flat-square)](https://packagist.org/packages/paperscissorsandglue/USPS-API)
 [![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/paperscissorsandglue/USPS-API/run-tests?label=tests)](https://github.com/paperscissorsandglue/USPS-API/actions?query=workflow%3Arun-tests+branch%3Amaster)
 [![Total Downloads](https://img.shields.io/packagist/dt/paperscissorsandglue/USPS-API.svg?style=flat-square)](https://packagist.org/packages/paperscissorsandglue/USPS-API)
 
 
-This is where your description should go. Try and limit it to a paragraph or two. Consider adding a small example.
+Based on original PHP library by Vincent Gabriel, modernized in Spatie package template for best practices and posterity.
 
 ## Support us
-
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/package-skeleton-php.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/package-skeleton-php)
 
 We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
 

@@ -1,6 +1,6 @@
 {
-    "name": "paperscissorsandglue/USPS-API",
-    "description": "USPS API integration on PHP based on original library by Vincent Gabriel.",
+    "name": "paperscissorsandglue/usps-api",
+    "description": "PHP USPS API integration on PHP based on original library by Vincent Gabriel.",
     "keywords": [
         "paperscissorsandglue",
         "USPS-API"
@@ -16,7 +16,7 @@
         }
     ],
     "require": {
-        "php": "^7.4|^8.0"
+        "php": "^7.3|^8.0"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^2.16",
@@ -25,12 +25,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Paperscissorsandglue\\USPSAPI\\": "src"
+            "Paperscissorsandglue\\USPS\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Paperscissorsandglue\\USPSAPI\\Tests\\": "tests"
+            "Paperscissorsandglue\\USPS\\Tests\\": "tests"
         }
     },
     "scripts": {
