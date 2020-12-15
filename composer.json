@@ -1,16 +1,16 @@
 {
-    "name": ":vendor_name/:package_name",
-    "description": ":package_description",
+    "name": "paperscissorsandglue/USPS-API",
+    "description": "USPS API integration on PHP based on original library by Vincent Gabriel.",
     "keywords": [
-        ":vendor_name",
-        ":package_name"
+        "paperscissorsandglue",
+        "USPS-API"
     ],
-    "homepage": "https://github.com/:vendor_name/:package_name",
+    "homepage": "https://github.com/paperscissorsandglue/USPS-API",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": ":author_email",
+            "name": "Tom Filepp",
+            "email": "paperscissorsandglue@pm.me",
             "homepage": "https://spatie.be",
             "role": "Developer"
         }
@@ -25,12 +25,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Spatie\\Skeleton\\": "src"
+            "Paperscissorsandglue\\USPSAPI\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Spatie\\Skeleton\\Tests\\": "tests"
+            "Paperscissorsandglue\\USPSAPI\\Tests\\": "tests"
         }
     },
     "scripts": {
