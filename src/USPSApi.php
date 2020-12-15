@@ -2,7 +2,6 @@
 
 namespace Paperscissorsandglue\USPS;
 
-
 use Paperscissorsandglue\USPS\Operations\Rate;
 use Paperscissorsandglue\USPS\Operations\RatePackage;
 
@@ -12,18 +11,22 @@ use Paperscissorsandglue\USPS\Operations\RatePackage;
  *
  * Simple api key dependency injector
  */
-class USPSApi {
+class USPSApi
+{
     private string $api_key;
 
-    public function __construct (string $api_key) {
+    public function __construct(string $api_key)
+    {
         $this->api_key = $api_key;
     }
 
-    public function rate(): Rate {
+    public function rate(): Rate
+    {
         return new Rate($this->api_key);
     }
 
-    public function package(): RatePackage {
+    public function package(): RatePackage
+    {
         return new RatePackage();
     }
 }
