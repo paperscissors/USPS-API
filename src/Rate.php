@@ -69,4 +69,3 @@ class Rate extends USPSBase
         $this->packages['Package'][] = array_merge(['@attributes' => ['ID' => $packageId]], $data->getPackageInfo());
     }
 }
-

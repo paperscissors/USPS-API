@@ -69,22 +69,22 @@ abstract class USPSBase
      * @var array - different kind of supported api calls by this wrapper
      */
     protected $apiCodes = [
-        'RateV2'                          => 'RateV2Request',
-        'RateV4'                          => 'RateV4Request',
-        'IntlRateV2'                      => 'IntlRateV2Request',
-        'Verify'                          => 'AddressValidateRequest',
-        'ZipCodeLookup'                   => 'ZipCodeLookupRequest',
-        'CityStateLookup'                 => 'CityStateLookupRequest',
-        'TrackV2'                         => 'TrackFieldRequest',
-        'FirstClassMail'                  => 'FirstClassMailRequest',
-        'SDCGetLocations'                 => 'SDCGetLocationsRequest',
-        'ExpressMailLabel'                => 'ExpressMailLabelRequest',
-        'PriorityMail'                    => 'PriorityMailRequest',
-        'OpenDistributePriorityV2'        => 'OpenDistributePriorityV2.0Request',
+        'RateV2' => 'RateV2Request',
+        'RateV4' => 'RateV4Request',
+        'IntlRateV2' => 'IntlRateV2Request',
+        'Verify' => 'AddressValidateRequest',
+        'ZipCodeLookup' => 'ZipCodeLookupRequest',
+        'CityStateLookup' => 'CityStateLookupRequest',
+        'TrackV2' => 'TrackFieldRequest',
+        'FirstClassMail' => 'FirstClassMailRequest',
+        'SDCGetLocations' => 'SDCGetLocationsRequest',
+        'ExpressMailLabel' => 'ExpressMailLabelRequest',
+        'PriorityMail' => 'PriorityMailRequest',
+        'OpenDistributePriorityV2' => 'OpenDistributePriorityV2.0Request',
         'OpenDistributePriorityV2Certify' => 'OpenDistributePriorityV2.0CertifyRequest',
-        'ExpressMailIntl'                 => 'ExpressMailIntlRequest',
-        'PriorityMailIntl'                => 'PriorityMailIntlRequest',
-        'FirstClassMailIntl'              => 'FirstClassMailIntlRequest',
+        'ExpressMailIntl' => 'ExpressMailIntlRequest',
+        'PriorityMailIntl' => 'PriorityMailIntlRequest',
+        'FirstClassMailIntl' => 'FirstClassMailIntlRequest',
     ];
     /**
      * Default options for curl.
@@ -92,10 +92,10 @@ abstract class USPSBase
     public static $CURL_OPTS = [
         CURLOPT_CONNECTTIMEOUT => 30,
         CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_TIMEOUT        => 60,
-        CURLOPT_FRESH_CONNECT  => 1,
-        CURLOPT_PORT           => 443,
-        CURLOPT_USERAGENT      => 'usps-php',
+        CURLOPT_TIMEOUT => 60,
+        CURLOPT_FRESH_CONNECT => 1,
+        CURLOPT_PORT => 443,
+        CURLOPT_USERAGENT => 'usps-php',
         CURLOPT_FOLLOWLOCATION => true,
         CURLOPT_RETURNTRANSFER => true,
     ];
@@ -177,7 +177,7 @@ abstract class USPSBase
      */
     protected function doRequest($ch = null)
     {
-        if (!$ch) {
+        if (! $ch) {
             $ch = curl_init();
         }
         
@@ -285,7 +285,7 @@ abstract class USPSBase
      */
     public function isSuccess()
     {
-        return !$this->isError() ? true : false;
+        return ! $this->isError() ? true : false;
     }
     
     /**
