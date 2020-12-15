@@ -5,21 +5,22 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/paperscissorsandglue/USPS-API.svg?style=flat-square)](https://packagist.org/packages/paperscissorsandglue/USPS-API)
 
 
-Based on original PHP library by Vincent Gabriel, modernized in Spatie package template for best practices and posterity. Currently only the rate API classes are ported.
+Based on original PHP library by Vincent Gabriel, modernized in Spatie package template for best practices and posterity. Currently only the rate API classes are ported. Documentation and further integration ASAP.
 
 ## Installation
 
 You can install the package via composer:
 
 ```bash
-composer require paperscissorsandglue/USPS-API
+composer require paperscissorsandglue/usps-api-integration
 ```
 
 ## Usage
 
 ``` php
-$skeleton = new Paperscissorsandglue\USPSAPI();
-echo $skeleton->echoPhrase('Hello, Paperscissorsandglue!');
+$usps = new USPSApi("my api key");
+$rate = $usps->rate();
+//TODO: add packages, get estimate to documentation
 ```
 
 ## Testing
