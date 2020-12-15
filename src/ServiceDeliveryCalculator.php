@@ -53,14 +53,14 @@ class ServiceDeliveryCalculator extends USPSBase
     public function addRoute($mail_class, $origin_zip, $destination_zip, $accept_date = null, $accept_time = null)
     {
         $route = [
-            'MailClass'      => $mail_class,
-            'OriginZIP'      => $origin_zip,
+            'MailClass' => $mail_class,
+            'OriginZIP' => $origin_zip,
             'DestinationZIP' => $destination_zip,
         ];
-        if (!empty($accept_date)) {
+        if (! empty($accept_date)) {
             $route['AcceptDate'] = $accept_date;
         }
-        if (!empty($accept_time)) {
+        if (! empty($accept_time)) {
             $route['AcceptTime'] = $accept_time;
         }
         $this->route = $route;

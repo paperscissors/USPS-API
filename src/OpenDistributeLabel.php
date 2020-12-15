@@ -207,26 +207,26 @@ class OpenDistributeLabel extends USPSBase
     protected function addMissingRequired()
     {
         $required = [
-            '1:Revision'                      => '',
-            '2:ImageParameters'               => '',
-            '2:PermitNumber'                  => '',
-            '4:PermitIssuingPOZip5'           => '',
-            '14:POZipCode'                    => '',
-            '34:FacilityType'                 => 'DDU',
-            '35:MailClassEnclosed'            => 'Other',
-            '36:MailClassOther'               => 'Free Samples',
-            '37:WeightInPounds'               => '22',
-            '38:WeightInOunces'               => '10',
-            '39:ImageType'                    => 'PDF',
-            '40:SeparateReceiptPage'          => 'false',
+            '1:Revision' => '',
+            '2:ImageParameters' => '',
+            '2:PermitNumber' => '',
+            '4:PermitIssuingPOZip5' => '',
+            '14:POZipCode' => '',
+            '34:FacilityType' => 'DDU',
+            '35:MailClassEnclosed' => 'Other',
+            '36:MailClassOther' => 'Free Samples',
+            '37:WeightInPounds' => '22',
+            '38:WeightInOunces' => '10',
+            '39:ImageType' => 'PDF',
+            '40:SeparateReceiptPage' => 'false',
             '41:AllowNonCleansedFacilityAddr' => 'false',
-            '42:HoldForManifest'              => 'N',
-            '43:CommercialPrice'              => 'N',
+            '42:HoldForManifest' => 'N',
+            '43:CommercialPrice' => 'N',
         ];
 
         foreach ($required as $item => $value) {
             $explode = explode(':', $item);
-            if (!isset($this->fields[$item])) {
+            if (! isset($this->fields[$item])) {
                 $this->setField($explode[0], $explode[1], $value);
             }
         }

@@ -45,7 +45,7 @@ class PriorityMailServiceStandards extends USPSBase
     public function addRoute($origin_zip, $destination_zip)
     {
         $this->route = [
-            'OriginZip'      => $origin_zip,
+            'OriginZip' => $origin_zip,
             'DestinationZip' => $destination_zip,
         ];
     }

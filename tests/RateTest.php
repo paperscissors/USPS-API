@@ -9,6 +9,7 @@ use PHPUnit\Framework\TestCase;
 class RateTest extends TestCase
 {
     private $username = "";
+
     /** @test */
     public function can_get_estimate()
     {
@@ -19,7 +20,7 @@ class RateTest extends TestCase
             'street_2' => '',
             'municipality' => 'Wonder Wharf',
             'region' => 'NJ',
-            'postal_code' => '08223'
+            'postal_code' => '08223',
         ];
         
         $this->assertTrue(true);

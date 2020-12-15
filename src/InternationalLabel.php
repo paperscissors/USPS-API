@@ -119,12 +119,12 @@ class InternationalLabel extends USPSBase
         $countryOfOrigin = null
     ) {
         $this->contents['ItemDetail'][] = [
-            'Description'     => $description,
-            'Quantity'        => $quantity,
-            'Value'           => $value,
-            'NetPounds'       => $pounds,
-            'NetOunces'       => $ounces,
-            'HSTariffNumber'  => $tarrifNumber,
+            'Description' => $description,
+            'Quantity' => $quantity,
+            'Value' => $value,
+            'NetPounds' => $pounds,
+            'NetOunces' => $ounces,
+            'HSTariffNumber' => $tarrifNumber,
             'CountryOfOrigin' => $countryOfOrigin,
         ];
 
@@ -283,24 +283,24 @@ class InternationalLabel extends USPSBase
     protected function addMissingRequired()
     {
         $required = [
-            '1:Option'           => '',
-            '1.1:Revision'       => '2',
-            '4:ImageParameters'  => '',
-            '30:Container'       => 'NONRECTANGULAR',
-            '32:GrossPounds'     => '',
-            '33:GrossOunces'     => '',
-            '34:ContentType'     => 'Documents',
-            '35:Agreement'       => 'Y',
-            '36:ImageType'       => 'PDF',
-            '37:ImageLayout'     => 'ALLINONEFILE',
-            '38:POZipCode'       => '',
-            '39:LabelDate'       => '',
+            '1:Option' => '',
+            '1.1:Revision' => '2',
+            '4:ImageParameters' => '',
+            '30:Container' => 'NONRECTANGULAR',
+            '32:GrossPounds' => '',
+            '33:GrossOunces' => '',
+            '34:ContentType' => 'Documents',
+            '35:Agreement' => 'Y',
+            '36:ImageType' => 'PDF',
+            '37:ImageLayout' => 'ALLINONEFILE',
+            '38:POZipCode' => '',
+            '39:LabelDate' => '',
             '40:HoldForManifest' => 'N',
-            '41:Size'            => 'LARGE',
-            '42:Length'          => '',
-            '43:Width'           => '',
-            '44:Height'          => 'false',
-            '45:Girth'           => '',
+            '41:Size' => 'LARGE',
+            '42:Length' => '',
+            '43:Width' => '',
+            '44:Height' => 'false',
+            '45:Girth' => '',
         ];
 
         // We need to add additional fields based on api we are using
@@ -309,27 +309,30 @@ class InternationalLabel extends USPSBase
                 $required = array_merge($required, [
                     '29:NonDeliveryOption' => 'Return',
                 ]);
+
                 break;
             case 'PriorityMailIntl':
                 $required = array_merge($required, [
                     '29:NonDeliveryOption' => 'Return',
-                    '31.1:Insured'         => 'N',
-                    '40.1:EELPFC'          => '',
+                    '31.1:Insured' => 'N',
+                    '40.1:EELPFC' => '',
                 ]);
+
                 break;
             case 'FirstClassMailIntl':
                 $required = array_merge($required, [
                     '30.1:FirstClassMailType' => 'PARCEL',
-                    '31.1:Insured'            => 'N',
-                    '33.1:Machinable'         => 'false',
-                    '40.1:EELPFC'             => '',
+                    '31.1:Insured' => 'N',
+                    '33.1:Machinable' => 'false',
+                    '40.1:EELPFC' => '',
                 ]);
+
                 break;
         }
 
         foreach ($required as $item => $value) {
             $explode = explode(':', $item);
-            if (!isset($this->fields[$item])) {
+            if (! isset($this->fields[$item])) {
                 $this->setField($explode[0], $explode[1], $value);
             }
         }

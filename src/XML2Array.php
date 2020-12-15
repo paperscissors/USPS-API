@@ -58,11 +58,11 @@ class XML2Array
 
         if (is_string($input_xml)) {
             $parsed = $xml->loadXML($input_xml);
-            if (!$parsed) {
+            if (! $parsed) {
                 throw new Exception('[XML2Array] Error parsing the XML string.');
             }
         } else {
-            if (!$input_xml instanceof DOMDocument) {
+            if (! $input_xml instanceof DOMDocument) {
                 throw new Exception('[XML2Array] The input XML object should be of type: DOMDocument.');
             }
             $xml = self::$xml = $input_xml;
@@ -89,10 +89,12 @@ class XML2Array
         switch ($node->nodeType) {
             case XML_CDATA_SECTION_NODE:
                 $output['@cdata'] = trim($node->textContent);
+
                 break;
 
             case XML_TEXT_NODE:
                 $output = trim($node->textContent);
+
                 break;
 
             case XML_ELEMENT_NODE:
@@ -104,7 +106,7 @@ class XML2Array
                         $t = $child->tagName;
 
                         // assume more nodes of same kind are coming
-                        if (!isset($output[$t])) {
+                        if (! isset($output[$t])) {
                             $output[$t] = [];
                         }
                         $output[$t][] = $v;
@@ -136,11 +138,12 @@ class XML2Array
                         $a[$attrName] = (string) $attrNode->value;
                     }
                     // if its an leaf node, store the value in @value instead of directly storing it.
-                    if (!is_array($output)) {
+                    if (! is_array($output)) {
                         $output = ['@value' => $output];
                     }
                     $output['@attributes'] = $a;
                 }
+
                 break;
         }
 
