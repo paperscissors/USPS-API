@@ -1,6 +1,6 @@
 <?php
 
-namespace Paperscissorsandglue\USPS;
+namespace Paperscissorsandglue\USPS\Operations;
 
 /**
  * Class TrackConfirm.

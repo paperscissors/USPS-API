@@ -2,13 +2,14 @@
 
 namespace Paperscissorsandglue\USPS\Tests;
 
-use Paperscissorsandglue\USPS\Rate;
-use Paperscissorsandglue\USPS\RatePackage;
+use Paperscissorsandglue\USPS\Operations\Rate;
+use Paperscissorsandglue\USPS\Operations\RatePackage;
+use Paperscissorsandglue\USPS\USPSApi;
 use PHPUnit\Framework\TestCase;
 
 class RateTest extends TestCase
 {
-    private $username = "";
+    private $api_key = null; //TODO: needs to pull in from env variable on github actions + here
 
     /** @test */
     public function can_get_estimate()
@@ -22,30 +23,31 @@ class RateTest extends TestCase
             'region' => 'NJ',
             'postal_code' => '08223',
         ];
-        
+
         $this->assertTrue(true);
-        $rate = new Rate($this->username ?: false);
+        $usps = new USPSApi($this->api_key);
+        $rate = $usps->rate();
         $this->assertInstanceOf(Rate::class, $rate);
         $weight = 10;
         // media mail
         $rate->addPackage(self::addDomesticPackage($to_address, $weight, RatePackage::SERVICE_MEDIA));
-    
+
         // first class
         $rate->addPackage(self::addDomesticPackage($to_address, $weight, RatePackage::SERVICE_FIRST_CLASS));
-    
+
         // priority
         $rate->addPackage(self::addDomesticPackage($to_address, $weight, RatePackage::SERVICE_PRIORITY));
-        
+
         $rates = simplexml_load_string($rate->getRate());
-    
+
         $estimates = [];
-    
+
         if (! empty($rates->Package)) {
             foreach ($rates->Package as $estimate) {
                 if (! empty($estimate->Postage)) {
                     $name = str_replace(' Service', '', $estimate->Postage->MailService);
                     $rate = $estimate->Postage->Rate;
-                
+
                     $estimates[htmlentities(html_entity_decode($name)).'%'.htmlentities($rate)] = html_entity_decode($name).' $'.$rate;
                 }
             }
@@ -53,21 +55,21 @@ class RateTest extends TestCase
             //error
             throw new \Exception('Error getting estimate');
         }
-        
+
         $this->assertIsArray($estimates);
         $this->assertTrue(count($estimates) > 0);
     }
-    
+
     public static function addDomesticPackage($to_address, $weight, $service): RatePackage
     {
         $package = new RatePackage();
-        
+
         $package->setService($service);
-        
+
         if ($service == 'FIRST CLASS') {
             $package->setFirstClassMailType(RatePackage::MAIL_TYPE_PARCEL);
         }
-        
+
         $package->setZipOrigination(94103);
         $package->setZipDestination($to_address->postal_code);
         $package->setPounds(0);
@@ -75,7 +77,7 @@ class RateTest extends TestCase
         $package->setContainer('');
         $package->setSize(RatePackage::SIZE_REGULAR);
         $package->setField('Machinable', true);
-        
+
         return $package;
     }
 }

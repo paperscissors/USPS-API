@@ -1,6 +1,6 @@
 <?php
 
-namespace Paperscissorsandglue\USPS;
+namespace Paperscissorsandglue\USPS\Operations;
 
 /*
  * Array2XML: A class to convert array in PHP to XML

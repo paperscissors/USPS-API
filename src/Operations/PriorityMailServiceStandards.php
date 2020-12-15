@@ -1,16 +1,16 @@
 <?php
 
-namespace Paperscissorsandglue\USPS;
+namespace Paperscissorsandglue\USPS\Operations;
 
 /**
- * Class FirstClassServiceStandards.
+ * Class PriorityMailServiceStandards.
  */
-class FirstClassServiceStandards extends USPSBase
+class PriorityMailServiceStandards extends USPSBase
 {
     /**
      * @var string - the api version used for this type of call
      */
-    protected $apiVersion = 'FirstClassMail';
+    protected $apiVersion = 'PriorityMail';
     /**
      * @var array - route added so far.
      */
